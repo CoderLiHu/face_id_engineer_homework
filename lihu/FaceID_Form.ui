@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Form</class>
+ <widget class="QWidget" name="Form">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>560</width>
+    <height>477</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <widget class="QLabel" name="faceWindow">
+   <property name="geometry">
+    <rect>
+     <x>30</x>
+     <y>30</y>
+     <width>291</width>
+     <height>241</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>选择图片</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="chooseFaceBtn">
+   <property name="geometry">
+    <rect>
+     <x>380</x>
+     <y>40</y>
+     <width>161</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>选脸</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="addNewBtn">
+   <property name="geometry">
+    <rect>
+     <x>380</x>
+     <y>170</y>
+     <width>161</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>录入新脸</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="identifyOldBtn">
+   <property name="geometry">
+    <rect>
+     <x>380</x>
+     <y>240</y>
+     <width>161</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>识别老脸</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="lineEdit">
+   <property name="geometry">
+    <rect>
+     <x>380</x>
+     <y>130</y>
+     <width>161</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>请输入新脸的名字</string>
+   </property>
+  </widget>
+  <widget class="QTextEdit" name="outputWindow">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>330</y>
+     <width>521</width>
+     <height>131</height>
+    </rect>
+   </property>
+  </widget>
+ </widget>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>chooseFaceBtn</sender>
+   <signal>clicked()</signal>
+   <receiver>Form</receiver>
+   <slot>chooseFace()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>453</x>
+     <y>58</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>360</x>
+     <y>33</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>addNewBtn</sender>
+   <signal>clicked()</signal>
+   <receiver>Form</receiver>
+   <slot>chooseFace()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>427</x>
+     <y>189</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>368</x>
+     <y>190</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+ <slots>
+  <slot>chooseFace()</slot>
+ </slots>
+</ui>

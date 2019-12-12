@@ -1,0 +1,364 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>TabWidget</class>
+ <widget class="QTabWidget" name="TabWidget">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>751</width>
+    <height>441</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>人脸识别打卡</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">background-color: rgb(255, 255, 255);</string>
+  </property>
+  <property name="currentIndex">
+   <number>0</number>
+  </property>
+  <widget class="QWidget" name="clockIn_tab">
+   <property name="inputMethodHints">
+    <set>Qt::ImhNone</set>
+   </property>
+   <attribute name="title">
+    <string>打卡</string>
+   </attribute>
+   <widget class="QLabel" name="faceIdentification_label">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>20</y>
+      <width>461</width>
+      <height>371</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(197, 197, 197);</string>
+    </property>
+    <property name="text">
+     <string>请选择要输入的脸</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="chooseFace_btn">
+    <property name="geometry">
+     <rect>
+      <x>510</x>
+      <y>20</y>
+      <width>221</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>输入脸</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="identifyClockIn_tab">
+    <property name="geometry">
+     <rect>
+      <x>510</x>
+      <y>110</y>
+      <width>221</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>识别打卡</string>
+    </property>
+   </widget>
+   <widget class="QListWidget" name="clockInRecordsList">
+    <property name="geometry">
+     <rect>
+      <x>510</x>
+      <y>180</y>
+      <width>221</width>
+      <height>211</height>
+     </rect>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QWidget" name="addMember_tab">
+   <attribute name="title">
+    <string>增员</string>
+   </attribute>
+   <widget class="QLabel" name="faceAddition_label">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>20</y>
+      <width>461</width>
+      <height>371</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(197, 197, 197);</string>
+    </property>
+    <property name="text">
+     <string>请选择要新增的脸</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="addFaceChoose_btn">
+    <property name="geometry">
+     <rect>
+      <x>510</x>
+      <y>30</y>
+      <width>221</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>选择要新增的脸</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="addFace_btn">
+    <property name="geometry">
+     <rect>
+      <x>510</x>
+      <y>200</y>
+      <width>221</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>注册新脸到库</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="addFaceName_lineEdit">
+    <property name="geometry">
+     <rect>
+      <x>510</x>
+      <y>150</y>
+      <width>221</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(197, 197, 197);</string>
+    </property>
+    <property name="dragEnabled">
+     <bool>false</bool>
+    </property>
+    <property name="placeholderText">
+     <string>请输入新脸的名字</string>
+    </property>
+   </widget>
+   <widget class="QTextEdit" name="blackboard_textEidt">
+    <property name="geometry">
+     <rect>
+      <x>510</x>
+      <y>280</y>
+      <width>221</width>
+      <height>111</height>
+     </rect>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QWidget" name="delMember_tab">
+   <attribute name="title">
+    <string>减员</string>
+   </attribute>
+   <widget class="QLabel" name="faceDeletion_label">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>20</y>
+      <width>461</width>
+      <height>371</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(197, 197, 197);</string>
+    </property>
+    <property name="text">
+     <string>查询已存在的脸</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="delFaceName_lineEdit">
+    <property name="geometry">
+     <rect>
+      <x>500</x>
+      <y>20</y>
+      <width>221</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(197, 197, 197);</string>
+    </property>
+    <property name="dragEnabled">
+     <bool>false</bool>
+    </property>
+    <property name="placeholderText">
+     <string>请输入要删脸的名字</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="memberQuery_btn">
+    <property name="geometry">
+     <rect>
+      <x>500</x>
+      <y>80</y>
+      <width>221</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>查询</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="delFace_btn">
+    <property name="geometry">
+     <rect>
+      <x>500</x>
+      <y>150</y>
+      <width>221</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>删脸</string>
+    </property>
+   </widget>
+   <widget class="QTextEdit" name="blackboard_textEidt_2">
+    <property name="geometry">
+     <rect>
+      <x>500</x>
+      <y>230</y>
+      <width>221</width>
+      <height>161</height>
+     </rect>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QWidget" name="checkMember_tab">
+   <attribute name="title">
+    <string>查看</string>
+   </attribute>
+   <widget class="QTableView" name="membersQuery_tableView">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>20</y>
+      <width>461</width>
+      <height>371</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="groupName_lineEdit">
+    <property name="geometry">
+     <rect>
+      <x>500</x>
+      <y>20</y>
+      <width>221</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(197, 197, 197);</string>
+    </property>
+    <property name="dragEnabled">
+     <bool>false</bool>
+    </property>
+    <property name="placeholderText">
+     <string>请输入组名</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="membersQuery_btn">
+    <property name="geometry">
+     <rect>
+      <x>500</x>
+      <y>70</y>
+      <width>221</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>查询</string>
+    </property>
+   </widget>
+  </widget>
+ </widget>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>chooseFace_btn</sender>
+   <signal>clicked()</signal>
+   <receiver>TabWidget</receiver>
+   <slot>chooseFace()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>573</x>
+     <y>73</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>501</x>
+     <y>93</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>identifyClockIn_tab</sender>
+   <signal>clicked()</signal>
+   <receiver>TabWidget</receiver>
+   <slot>identifyClockIn()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>613</x>
+     <y>153</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>495</x>
+     <y>175</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>addFaceChoose_btn</sender>
+   <signal>clicked()</signal>
+   <receiver>TabWidget</receiver>
+   <slot>chooseFace()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>579</x>
+     <y>79</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>511</x>
+     <y>114</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>addFace_btn</sender>
+   <signal>clicked()</signal>
+   <receiver>TabWidget</receiver>
+   <slot>signUpFace()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>568</x>
+     <y>248</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>500</x>
+     <y>263</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+ <slots>
+  <slot>chooseFace()</slot>
+  <slot>identifyClockIn()</slot>
+  <slot>signUpFace()</slot>
+  <slot>slot2()</slot>
+ </slots>
+</ui>
