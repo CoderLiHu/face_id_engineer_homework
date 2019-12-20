@@ -18,7 +18,26 @@ class Main_Form(QtWidgets.QTabWidget,Ui_TabWidget):
         self.faceIdentification_label.setPixmap(jpg)
         # self.clockInRecordsList.addItem(addUser(imgName,'hahahaha'))
         # print(addUser(imgName,'hahahaha'))
-        self.clockInRecordsList.addItem(identify(imgName))
+        self.imgName =imgName
+
+    def identifyClockIn(self):
+        if self.imgName:
+            self.clockInRecordsList.addItem(identify(self.imgName))
+
+
+    def chooseFaceToAdd(self):
+        imgAddName, imgAddType = QFileDialog.getOpenFileName(self, "打开图片", "", "*.jpg;;*.png;;All Files(*)")
+        jpg = QtGui.QPixmap(imgAddName).scaled(self.faceAddition_label.width(),
+                                            self.faceAddition_label.height())
+        self.faceAddition_label.setPixmap(jpg)
+        self.imgAddName = imgAddName
+
+    def iaddFaceName_changed(self):
+        self.textAddName = self.addFaceName_lineEdit.text().strip()
+    def signUpFace(self):
+        if self.imgAddName and self.textAddName:
+            test = addUser(self.imgAddName,self.textAddName)
+            self.blackboard_textEidt.setText(test)
 
 if __name__ == '__main__':
     app = QtWidgets.QApplication(sys.argv)
