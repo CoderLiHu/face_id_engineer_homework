@@ -26,8 +26,8 @@ groupId = "group1"
 
 
 def addUser(image,userId):
-    # userId = userId.encode('utf-8')
-    # userId = userId.encode("utf-8").decode("latin1")
+    # userId_copy = base64.b64encode(userId)
+    # userId = userId.encode("utf-8").decode("utf-8")
     """ 调用创建用户组 """
     # await client.groupAdd(groupId);
     # image = 'D:/py/face_id/statics/hahaha.jpg'

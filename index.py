@@ -1,5 +1,5 @@
 import sys
-from PyQt5 import QtWidgets,QtGui
+from PyQt5 import QtWidgets,QtGui,QtMultimedia,QtCore
 from PyQt5.QtWidgets import QFileDialog
 
 from apis.test import test_face
@@ -23,6 +23,13 @@ class Main_Form(QtWidgets.QTabWidget,Ui_TabWidget):
     def identifyClockIn(self):
         if self.imgName:
             self.clockInRecordsList.addItem(identify(self.imgName))
+            url = QtCore.QUrl.fromLocalFile(
+                r"D:\myPython\face_id_engineer_homework\apis\auido.mp3")
+            content = QtMultimedia.QMediaContent(url)
+            player = QtMultimedia.QMediaPlayer()
+            player.setMedia(content)
+            player.setVolume(50.0)
+            player.play()
 
 
     def chooseFaceToAdd(self):
