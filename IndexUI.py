@@ -95,7 +95,7 @@ class Ui_TabWidget(object):
         TabWidget.addTab(self.checkMember_tab, "")
 
         self.retranslateUi(TabWidget)
-        TabWidget.setCurrentIndex(3)
+        TabWidget.setCurrentIndex(0)
         self.identifyClockIn_tab.clicked.connect(TabWidget.identifyClockIn)
         self.addFaceChoose_btn.clicked.connect(TabWidget.chooseFaceToAdd)
         self.addFace_btn.clicked.connect(TabWidget.signUpFace)

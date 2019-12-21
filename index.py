@@ -15,6 +15,7 @@ class Main_Form(QtWidgets.QTabWidget,Ui_TabWidget):
     def __init__(self):
         super(Main_Form,self).__init__()
         self.setupUi(self)
+        self.player = QtMultimedia.QMediaPlayer()
 
     def chooseFace(self):
         imgName, imgType = QFileDialog.getOpenFileName(self, "打开图片", "", "*.jpg;;*.png;;All Files(*)")
@@ -29,7 +30,7 @@ class Main_Form(QtWidgets.QTabWidget,Ui_TabWidget):
             idResult = identify(self.imgName)
             self.clockInRecordsList.addItem(idResult)
             # Python 3.7+
-            asyncio.run(speak(idResult))
+            asyncio.run(speak(self.player,idResult))
 
 
     def chooseFaceToAdd(self):

@@ -12,12 +12,10 @@ async def createMP3(text):
         with open(r'D:\myPython\face_id_engineer_homework\statics\auido.mp3', 'wb') as f:
             f.write(result)
 
-async def speak(text):
+async def speak(player,text):
     await createMP3(text)
-    url = QtCore.QUrl.fromLocalFile(
-        r"D:\myPython\face_id_engineer_homework\statics\auido.mp3")
+    url = QtCore.QUrl.fromLocalFile(r"D:\myPython\face_id_engineer_homework\statics\auido.mp3")
     content = QtMultimedia.QMediaContent(url)
-    player = QtMultimedia.QMediaPlayer()
     player.setMedia(content)
     player.setVolume(50.0)
     player.play()
