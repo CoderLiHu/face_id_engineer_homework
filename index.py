@@ -22,7 +22,8 @@ class Main_Form(QtWidgets.QTabWidget,Ui_TabWidget):
 
     def identifyClockIn(self):
         if self.imgName:
-            self.clockInRecordsList.addItem(identify(self.imgName))
+            idResult = identify(self.imgName)
+            self.clockInRecordsList.addItem(idResult)
             url = QtCore.QUrl.fromLocalFile(
                 r"D:\myPython\face_id_engineer_homework\apis\auido.mp3")
             content = QtMultimedia.QMediaContent(url)
@@ -39,11 +40,15 @@ class Main_Form(QtWidgets.QTabWidget,Ui_TabWidget):
         self.faceAddition_label.setPixmap(jpg)
         self.imgAddName = imgAddName
 
-    def iaddFaceName_changed(self):
+    def addFaceName_changed(self):
         self.textAddName = self.addFaceName_lineEdit.text().strip()
+
+    def addFaceID_changed(self):
+        self.textAddID = self.addFaceID_lineEdit.text().strip()
+
     def signUpFace(self):
-        if self.imgAddName and self.textAddName:
-            test = addUser(self.imgAddName,self.textAddName)
+        if self.imgAddName and self.textAddName and self.textAddID:
+            test = addUser(self.imgAddName,self.textAddID,self.textAddName)
             self.blackboard_textEidt.setText(test)
 
 if __name__ == '__main__':

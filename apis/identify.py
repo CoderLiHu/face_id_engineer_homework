@@ -25,6 +25,7 @@ def identify(img):
 
     """ 调用人脸搜索 """
     result = client.search(file_content, imageType, groupIdList);
-    result = result['result']['user_list'][0]['user_id']
+    result = result['result']['user_list'][0]
+    result = result['user_info']+result['user_id']
     return result
     print(result)

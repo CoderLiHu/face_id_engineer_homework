@@ -25,9 +25,9 @@ groupId = "group1"
 # client.addUser(image, imageType, groupId, userId, options)
 
 
-def addUser(image,userId):
-    # userId_copy = base64.b64encode(userId)
-    # userId = userId.encode("utf-8").decode("utf-8")
+def addUser(image,userID,userName):
+    options = {}
+    options["user_info"] = userName.encode('utf-8').decode('latin-1')
     """ 调用创建用户组 """
     # await client.groupAdd(groupId);
     # image = 'D:/py/face_id/statics/hahaha.jpg'
@@ -36,18 +36,18 @@ def addUser(image,userId):
     file_content = base64.b64encode(file_content)
     if isinstance(file_content, bytes):
         file_content = str(file_content, encoding='utf-8')
-    result = client.addUser(file_content, imageType, groupId, userId)
-    # result = json.loads(result)
+    result = client.addUser(file_content, imageType, groupId, userID,options)
+
     msg = result["error_msg"]
     if msg == "SUCCESS":
-        text = "欢迎加入," + userId + "!!!"
+        text = "欢迎加入," + userName + "!!!"
     elif msg == 'face is already exist':
         text = '库中存在该脸，请勿重复添加'
     else :
         text = '添加失败，请重试' + msg
-    print(type(result))
+    # print(type(result))
     return text
 
 if __name__ == '__main__':
     result = addUser('','group2')
-    print(result)
+    # print(result)

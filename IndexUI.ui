@@ -135,7 +135,7 @@
     <property name="geometry">
      <rect>
       <x>510</x>
-      <y>150</y>
+      <y>110</y>
       <width>221</width>
       <height>31</height>
      </rect>
@@ -158,6 +158,28 @@
       <width>221</width>
       <height>111</height>
      </rect>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="addFaceID_lineEdit">
+    <property name="geometry">
+     <rect>
+      <x>510</x>
+      <y>160</y>
+      <width>221</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(197, 197, 197);</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="dragEnabled">
+     <bool>false</bool>
+    </property>
+    <property name="placeholderText">
+     <string>请输入身份证号码</string>
     </property>
    </widget>
   </widget>
@@ -184,7 +206,7 @@
      <set>Qt::AlignCenter</set>
     </property>
    </widget>
-   <widget class="QLineEdit" name="delFaceName_lineEdit">
+   <widget class="QLineEdit" name="delFaceID_lineEdit">
     <property name="geometry">
      <rect>
       <x>500</x>
@@ -196,6 +218,9 @@
     <property name="styleSheet">
      <string notr="true">background-color: rgb(197, 197, 197);</string>
     </property>
+    <property name="text">
+     <string>请输入身份证号</string>
+    </property>
     <property name="dragEnabled">
      <bool>false</bool>
     </property>
@@ -203,7 +228,7 @@
      <string>请输入要删脸的名字</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="memberQuery_btn">
+   <widget class="QPushButton" name="delMemberQuery_btn">
     <property name="geometry">
      <rect>
       <x>500</x>
@@ -291,22 +316,6 @@
  <resources/>
  <connections>
   <connection>
-   <sender>chooseFace_btn</sender>
-   <signal>clicked()</signal>
-   <receiver>TabWidget</receiver>
-   <slot>chooseFace()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>573</x>
-     <y>73</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>501</x>
-     <y>93</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
    <sender>identifyClockIn_tab</sender>
    <signal>clicked()</signal>
    <receiver>TabWidget</receiver>
@@ -326,15 +335,15 @@
    <sender>addFaceChoose_btn</sender>
    <signal>clicked()</signal>
    <receiver>TabWidget</receiver>
-   <slot>chooseFace()</slot>
+   <slot>chooseFaceToAdd()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>579</x>
+     <x>578</x>
      <y>79</y>
     </hint>
     <hint type="destinationlabel">
-     <x>511</x>
-     <y>114</y>
+     <x>488</x>
+     <y>68</y>
     </hint>
    </hints>
   </connection>
@@ -354,11 +363,114 @@
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>chooseFace_btn</sender>
+   <signal>clicked()</signal>
+   <receiver>TabWidget</receiver>
+   <slot>chooseFace()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>573</x>
+     <y>73</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>501</x>
+     <y>93</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>addFaceName_lineEdit</sender>
+   <signal>editingFinished()</signal>
+   <receiver>TabWidget</receiver>
+   <slot>addFaceName_changed()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>534</x>
+     <y>154</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>496</x>
+     <y>161</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>addFaceID_lineEdit</sender>
+   <signal>editingFinished()</signal>
+   <receiver>TabWidget</receiver>
+   <slot>addFaceID_changed()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>532</x>
+     <y>201</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>493</x>
+     <y>207</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>delFaceID_lineEdit</sender>
+   <signal>editingFinished()</signal>
+   <receiver>TabWidget</receiver>
+   <slot>delFaceID_changed()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>521</x>
+     <y>58</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>490</x>
+     <y>38</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>delMemberQuery_btn</sender>
+   <signal>clicked()</signal>
+   <receiver>TabWidget</receiver>
+   <slot>delMemberQuery()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>613</x>
+     <y>126</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>485</x>
+     <y>128</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>delFace_btn</sender>
+   <signal>clicked()</signal>
+   <receiver>TabWidget</receiver>
+   <slot>delMember()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>515</x>
+     <y>188</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>495</x>
+     <y>236</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
  <slots>
   <slot>chooseFace()</slot>
   <slot>identifyClockIn()</slot>
   <slot>signUpFace()</slot>
   <slot>slot2()</slot>
+  <slot>chooseFaceToAdd()</slot>
+  <slot>addFaceName_changed()</slot>
+  <slot>addFaceID_changed()</slot>
+  <slot>delFaceID_changed()</slot>
+  <slot>delMemberQuery()</slot>
+  <slot>delMember()</slot>
+  <slot>slot1()</slot>
  </slots>
 </ui>
