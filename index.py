@@ -2,8 +2,6 @@ import asyncio
 import sys
 from PyQt5 import QtWidgets,QtGui,QtMultimedia,QtCore
 from PyQt5.QtWidgets import QFileDialog
-
-from apis.test import test_face
 from apis.register import addUser
 from apis.identify import identify
 from apis.delUser import queryMember,delUser
