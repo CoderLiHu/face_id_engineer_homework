@@ -5,6 +5,7 @@ from PyQt5.QtWidgets import QFileDialog
 from apis.test import test_face
 from apis.register import addUser
 from apis.identify import identify
+from apis.delUser import queryMember,delUser
 from IndexUI import Ui_TabWidget
 
 class Main_Form(QtWidgets.QTabWidget,Ui_TabWidget):
@@ -48,9 +49,21 @@ class Main_Form(QtWidgets.QTabWidget,Ui_TabWidget):
 
     def signUpFace(self):
         if self.imgAddName and self.textAddName and self.textAddID:
-            test = addUser(self.imgAddName,self.textAddID,self.textAddName)
-            self.blackboard_textEidt.setText(test)
+            res = addUser(self.imgAddName,self.textAddID,self.textAddName)
+            self.blackboardAdd_textEidt.setText(res)
 
+    def delFaceID_changed(self):
+        self.textDelID = self.delFaceID_lineEdit.text().strip()
+
+    def delMemberQuery(self):
+        if self.textDelID:
+            res = queryMember(self.textDelID)
+            self.faceDeletion_label.setText(res)
+
+    def delMember(self):
+        if self.textDelID:
+            res = delUser(self.textDelID)
+            self.blackboardDel_textEidt.setText(res)
 if __name__ == '__main__':
     app = QtWidgets.QApplication(sys.argv)
     main_form = Main_Form()

@@ -150,7 +150,7 @@
      <string>请输入新脸的名字</string>
     </property>
    </widget>
-   <widget class="QTextEdit" name="blackboard_textEidt">
+   <widget class="QTextEdit" name="blackboardAdd_textEidt">
     <property name="geometry">
      <rect>
       <x>510</x>
@@ -219,13 +219,13 @@
      <string notr="true">background-color: rgb(197, 197, 197);</string>
     </property>
     <property name="text">
-     <string>请输入身份证号</string>
+     <string/>
     </property>
     <property name="dragEnabled">
      <bool>false</bool>
     </property>
     <property name="placeholderText">
-     <string>请输入要删脸的名字</string>
+     <string>请输入身份证号</string>
     </property>
    </widget>
    <widget class="QPushButton" name="delMemberQuery_btn">
@@ -254,7 +254,7 @@
      <string>删脸</string>
     </property>
    </widget>
-   <widget class="QTextEdit" name="blackboard_textEidt_2">
+   <widget class="QTextEdit" name="blackboardDel_textEidt">
     <property name="geometry">
      <rect>
       <x>500</x>
