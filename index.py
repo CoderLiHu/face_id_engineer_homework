@@ -6,6 +6,7 @@ from apis.test import test_face
 from apis.register import addUser
 from apis.identify import identify
 from apis.delUser import queryMember,delUser
+from apis.queryMembers import getAllUsers
 from IndexUI import Ui_TabWidget
 
 class Main_Form(QtWidgets.QTabWidget,Ui_TabWidget):
@@ -64,6 +65,12 @@ class Main_Form(QtWidgets.QTabWidget,Ui_TabWidget):
         if self.textDelID:
             res = delUser(self.textDelID)
             self.blackboardDel_textEidt.setText(res)
+
+    def queryMembers(self):
+        res = getAllUsers()
+        for i in res:
+            self.membersQuery_tableView.addItem(i)
+
 if __name__ == '__main__':
     app = QtWidgets.QApplication(sys.argv)
     main_form = Main_Form()

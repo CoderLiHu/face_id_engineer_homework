@@ -17,7 +17,7 @@
    <string notr="true">background-color: rgb(255, 255, 255);</string>
   </property>
   <property name="currentIndex">
-   <number>0</number>
+   <number>3</number>
   </property>
   <widget class="QWidget" name="clockIn_tab">
    <property name="inputMethodHints">
@@ -279,36 +279,17 @@
      </rect>
     </property>
    </widget>
-   <widget class="QLineEdit" name="groupName_lineEdit">
+   <widget class="QPushButton" name="membersQuery_btn">
     <property name="geometry">
      <rect>
       <x>500</x>
       <y>20</y>
       <width>221</width>
-      <height>31</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">background-color: rgb(197, 197, 197);</string>
-    </property>
-    <property name="dragEnabled">
-     <bool>false</bool>
-    </property>
-    <property name="placeholderText">
-     <string>请输入组名</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="membersQuery_btn">
-    <property name="geometry">
-     <rect>
-      <x>500</x>
-      <y>70</y>
-      <width>221</width>
       <height>41</height>
      </rect>
     </property>
     <property name="text">
-     <string>查询</string>
+     <string>查询成员</string>
     </property>
    </widget>
   </widget>
@@ -459,6 +440,22 @@
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>membersQuery_btn</sender>
+   <signal>clicked()</signal>
+   <receiver>TabWidget</receiver>
+   <slot>queryMembers()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>547</x>
+     <y>74</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>547</x>
+     <y>139</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
  <slots>
   <slot>chooseFace()</slot>
@@ -471,6 +468,6 @@
   <slot>delFaceID_changed()</slot>
   <slot>delMemberQuery()</slot>
   <slot>delMember()</slot>
-  <slot>slot1()</slot>
+  <slot>queryMembers()</slot>
  </slots>
 </ui>
