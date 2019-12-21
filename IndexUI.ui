@@ -269,7 +269,7 @@
    <attribute name="title">
     <string>查看</string>
    </attribute>
-   <widget class="QTableView" name="membersQuery_tableView">
+   <widget class="QListWidget" name="membersQuery_listWidget">
     <property name="geometry">
      <rect>
       <x>20</x>

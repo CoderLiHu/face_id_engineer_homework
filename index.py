@@ -1,3 +1,4 @@
+import asyncio
 import sys
 from PyQt5 import QtWidgets,QtGui,QtMultimedia,QtCore
 from PyQt5.QtWidgets import QFileDialog
@@ -7,6 +8,7 @@ from apis.register import addUser
 from apis.identify import identify
 from apis.delUser import queryMember,delUser
 from apis.queryMembers import getAllUsers
+from apis.audio import speak
 from IndexUI import Ui_TabWidget
 
 class Main_Form(QtWidgets.QTabWidget,Ui_TabWidget):
@@ -26,13 +28,8 @@ class Main_Form(QtWidgets.QTabWidget,Ui_TabWidget):
         if self.imgName:
             idResult = identify(self.imgName)
             self.clockInRecordsList.addItem(idResult)
-            url = QtCore.QUrl.fromLocalFile(
-                r"D:\myPython\face_id_engineer_homework\apis\auido.mp3")
-            content = QtMultimedia.QMediaContent(url)
-            player = QtMultimedia.QMediaPlayer()
-            player.setMedia(content)
-            player.setVolume(50.0)
-            player.play()
+            # Python 3.7+
+            asyncio.run(speak(idResult))
 
 
     def chooseFaceToAdd(self):
@@ -69,7 +66,7 @@ class Main_Form(QtWidgets.QTabWidget,Ui_TabWidget):
     def queryMembers(self):
         res = getAllUsers()
         for i in res:
-            self.membersQuery_tableView.addItem(i)
+            self.membersQuery_listWidget.addItem(i)
 
 if __name__ == '__main__':
     app = QtWidgets.QApplication(sys.argv)

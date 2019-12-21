@@ -27,5 +27,5 @@ def identify(img):
     result = client.search(file_content, imageType, groupIdList);
     result = result['result']['user_list'][0]
     result = result['user_info']+result['user_id']
-    return result
+    return '热烈欢迎' + result
     print(result)
