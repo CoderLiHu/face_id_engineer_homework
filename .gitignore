@@ -1,3 +1,7 @@
 .idea
 __pycache__/
 apis/__pycache/
+build
+dist
+index.spec
+venv
