@@ -10,6 +10,7 @@ async def createMP3(text):
     if not isinstance(result, dict):
         with open(mp3_url, 'wb') as f:
             f.write(result)
+            f.close();
 
 async def speak(player,text):
     await createMP3(text)

@@ -60,6 +60,7 @@ def read_file(image_path):
     try:
         # rb	以二进制格式打开一个文件用于只读。文件指针将会放在文件的开头。
         # 这是默认模式。一般用于非文本文件如图片等。
+
         f = open(image_path, 'rb')
         return f.read()
     except:

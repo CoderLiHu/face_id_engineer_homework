@@ -96,10 +96,10 @@ class Ui_TabWidget(object):
 
         self.retranslateUi(TabWidget)
         TabWidget.setCurrentIndex(0)
-        self.identifyClockIn_tab.clicked.connect(TabWidget.identifyClockIn)
+        self.identifyClockIn_tab.clicked.connect(TabWidget.iden)
         self.addFaceChoose_btn.clicked.connect(TabWidget.chooseFaceToAdd)
         self.addFace_btn.clicked.connect(TabWidget.signUpFace)
-        self.chooseFace_btn.clicked.connect(TabWidget.chooseFace)
+        self.chooseFace_btn.clicked.connect(TabWidget.videoCapture)
         self.addFaceName_lineEdit.editingFinished.connect(TabWidget.addFaceName_changed)
         self.addFaceID_lineEdit.editingFinished.connect(TabWidget.addFaceID_changed)
         self.delFaceID_lineEdit.editingFinished.connect(TabWidget.delFaceID_changed)

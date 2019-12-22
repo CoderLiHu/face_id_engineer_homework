@@ -18,7 +18,9 @@ groupIdList = "group1"
 
 # print(result)
 def identify(img):
-    file_content = read_file(img)
+    img_path = "d:/test.jpg"
+    img.save(img_path,'JPG')
+    file_content = read_file(img_path)
     file_content = base64.b64encode(file_content)
     if isinstance(file_content, bytes):
         file_content = str(file_content, encoding='utf-8')

@@ -1,4 +1,8 @@
 import sys, os
+
+import cv2
+from PyQt5.QtGui import QImage, QPixmap
+
 if hasattr(sys, 'frozen'):
     os.environ['PATH'] = sys._MEIPASS + ";" + os.environ['PATH']
 import asyncio
@@ -17,6 +21,37 @@ class Main_Form(QtWidgets.QTabWidget,Ui_TabWidget):
         self.setupUi(self)
         self.player = QtMultimedia.QMediaPlayer()
 
+    def videoCapture(self):
+        # 0是代表摄像头编号，只有一个的话默认为0
+        self.capture = cv2.VideoCapture(0)
+        # self.capture.open()
+        while (True):
+            # self.capture = cv2.VideoCapture(0)
+            ref, frame = self.capture.read()
+            height, width, bytesPerComponent = frame.shape
+            bytesPerLine = bytesPerComponent * width
+            # 变换彩色空间顺序
+            cv2.cvtColor(frame, cv2.COLOR_BGR2RGB, frame)
+            # 转为QImage对象
+            self.image = QImage(frame.data, width, height, bytesPerLine, QImage.Format_RGB888)
+            self.faceIdentification_label.setPixmap(QPixmap.fromImage(self.image))
+            # print(type(self.image))
+            # cv2.imshow("1", frame)
+            # 等待30ms显示图像，若过程中按“Esc”退出
+            c = cv2.waitKey(30) & 0xff
+            if c == 27:
+                # print(type(self.image))
+                self.capture.release()
+                break
+        cv2.waitKey(0)
+    def iden(self):
+        if self.image:
+            self.player = QtMultimedia.QMediaPlayer()
+            idResult = identify(self.image)
+            self.clockInRecordsList.addItem(idResult)
+            # Python 3.7+
+            asyncio.run(speak(self.player,idResult))
+        # self.capture.release()
     def chooseFace(self):
         imgName, imgType = QFileDialog.getOpenFileName(self, "打开图片", "", "*.jpg;;*.png;;All Files(*)")
         jpg = QtGui.QPixmap(imgName).scaled(self.faceIdentification_label.width(), self.faceIdentification_label.height())
