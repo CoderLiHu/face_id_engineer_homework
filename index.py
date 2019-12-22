@@ -1,5 +1,7 @@
+import sys, os
+if hasattr(sys, 'frozen'):
+    os.environ['PATH'] = sys._MEIPASS + ";" + os.environ['PATH']
 import asyncio
-import sys
 from PyQt5 import QtWidgets,QtGui,QtMultimedia,QtCore
 from PyQt5.QtWidgets import QFileDialog
 from apis.register import addUser
